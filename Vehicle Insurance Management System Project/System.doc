@@ -1,2 +1,68 @@
+# Abstract
 The Online Insurance Portal provides a numerous policy for the customers, so that the customer can view all the policy, complete details and benefits about the policy. The online assistance will help the customer to choose the policy he/she wants and the premiums calculator are been use to calculate the premium amount of their own policies. 
 The customer can buy their policies through online, and the payments can be made through credit/debit cards. The premium payment and policy renewal date can be intimated to the customers through emails. Policy premium payments and renewal of the policies can also be done through online. 
+
+
+# References :
+
+CONNECTIVITY
+1.https://www.javatpoint.com/jdbc-driver
+
+
+PROJECT
+https://www.freeprojectz.com/entity-relationship/vehicle-insurance-management-system-er-diagram
+https://www.scribd.com/doc/64236595/E-R-Diagram-for-Insurance-Company-1
+https://creately.com/diagram/example/gsy2ezop2/diagram-products
+https://stackoverflow.com/questions/35668643/add-1-month-from-current-date-using-java-sql-date
+https://stackoverflow.com/questions/14946886/store-current-date-and-date-1-year-from-current-in-java
+https://www.youtube.com/watch?v=eybhdJFhQyE
+https://www.youtube.com/watch?v=uKEgKETRCzE
+https://www.javatpoint.com/mysql-create-table
+https://www.youtube.com/watch?v=h40mEf7WyMQ
+https://www.youtube.com/watch?v=KRhv4iPgzHE&t=18s
+https://www.youtube.com/watch?v=CrHZIW9pnnQ&t=26s
+https://www.youtube.com/watch?v=WIzzHeWukUU
+https://www.youtube.com/watch?v=6dDJgJg4mjY
+https://www.youtube.com/watch?v=Wp6uS7CmivE
+https://www.youtube.com/watch?v=WuBcTJnIuzo
+
+
+
+package com;
+ 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+ 
+public class DateTimeExample {
+    public static void main(String args[]){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/demo","root","root");
+            
+            java.util.Date date=new java.util.Date();
+            
+            java.sql.Date sqlDate=new java.sql.Date(date.getTime());
+            java.sql.Timestamp sqlTime=new java.sql.Timestamp(date.getTime());
+            
+            PreparedStatement ps=con.prepareStatement("insert into record (date,time) values(?,?)");
+            ps.setDate(1,sqlDate);
+            ps.setTimestamp(2,sqlTime);
+            ps.executeUpdate();            
+            
+            ps.close();
+            con.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+}
+
+
+SQL
+5.http://www.sqltutorial.org/
+6.https://www.w3schools.com/sql/sql_drop_table.asp
+
+ER DIAGRAM
+7.https://www.tutorialspoint.com/dbms/er_model_basic_concepts.htm
+8.https://www.w3schools.in/dbms/data-schemas/
